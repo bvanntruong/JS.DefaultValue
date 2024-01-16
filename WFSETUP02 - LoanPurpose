@@ -1,0 +1,9 @@
+/* WFSETUP02 : Default Loan Purpose to Blank
+  On Status Changed (since SetUp manually clicks Loan Open Status) */
+
+
+/* Loan Open Status */
+
+if (los.GetField("Status.LoanStatus") == "51"){
+ los.SetField("Loan.LoanPurpose", 0)
+};
