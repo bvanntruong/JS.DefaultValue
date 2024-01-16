@@ -1,0 +1,13 @@
+/* WFSETUP04 : Sets origination channel at Loan Open Status */
+
+
+/* Set Origination Channel at Loan Open Status */
+
+if (los.GetField("Status.LoanStatus") == "51"){
+ var brokerName = los.GetField("LO.Company");
+ if (brokerName == "OptionWide Financial Corporation"){
+    los.SetField("FileData.OriginationChannel", 1); //Retail
+ }
+ else los.SetField("FileData.OriginationChannel ", 3); //Wholesale
+
+};
