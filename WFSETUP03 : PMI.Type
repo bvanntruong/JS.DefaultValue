@@ -1,0 +1,11 @@
+/* WFSETUP03 : Default PMI Type to None when LTV<80% */
+
+
+/* Loan Open Status (51)
+    Set PMI Type to None (1) if LTV < 80% */
+
+if (los.GetField("Status.LoanStatus") == "51"){
+ if ( (los.GetField("Loan.BaseLoan")/los.GetField("SubProp.AppraisedValue"))<0.80 ){
+  los.SetField("Loan.MIMethod", 1)
+  };
+};
