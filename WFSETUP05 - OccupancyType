@@ -1,0 +1,22 @@
+/* WFSETUP05 : Set Occupancy Type to Expanded Occupancy Type */
+
+/* Change in Expanded Occupancy Type (CHLOE/CLARE map) will update Byte's Occupancy Type. */
+
+
+if (ev.TableAndFieldName=="ExtendedFields.ExpandedOccupancyType") {
+
+ if( (los.GetField("ExtendedFields.ExpandedOccupancyType") == "Investment") 
+  || (los.GetField("ExtendedFields.ExpandedOccupancyType") == "Investment - DSCR") ) {
+   los.SetField("FileData.OccupancyType", 3)
+ };
+
+ if (los.GetField("ExtendedFields.ExpandedOccupancyType") == "Owner Occupied") {
+  los.SetField("FileData.OccupancyType", 1)
+ };
+
+ if (los.GetField("ExtendedFields.ExpandedOccupancyType") == "Second Home") {
+  los.SetField("FileData.OccupancyType", 2)
+ };
+
+
+};
