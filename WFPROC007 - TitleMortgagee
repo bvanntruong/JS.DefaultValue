@@ -1,0 +1,4 @@
+/* WFPROC007 : Mortgagee for Title */
+/* Hardcode Mortgagee Clause for “Mortgagee for Title” on Parties Screen */
+
+los.SetField("MortgageeTitle.Notes", ("Optionwide Financial Corporation" + "\r\n" + "Its successors and assigns as their interest may appear.") )
