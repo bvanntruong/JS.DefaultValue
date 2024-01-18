@@ -1,0 +1,51 @@
+/* Temporary Fix to Set Approval Date on specific files */
+/* WFUW017 */
+
+if (los.GetField("FileData.FileName") == "1220011172") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "08/22/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011180") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "09/11/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011181") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "09/11/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011174") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "08/24/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011170") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "08/15/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011173") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "08/18/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011178") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "09/08/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011179") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "09/08/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011171") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "08/16/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011166") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "08/14/2023")
+};
+
+if (los.GetField("FileData.FileName") == "5220011950") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "09/11/2023")
+};
+
+if (los.GetField("FileData.FileName") == "1220011168") {
+los.SetField("ExtendedFields.OriginalApprovedDate", "08/14/2023")
+};
+
