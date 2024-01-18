@@ -1,0 +1,10 @@
+/* WFPROC008 : Mortgagee for Hazard - Retail */
+/* On Retail - Hardcode Mortgagee Clause for "Mortgagee for Insurance" on Parties Screen */
+
+
+if ( (los.GetField("FileData.OriginationChannel") == "1") /* Retail */ ){
+
+ var clause = "OptionWide Financial Corporation" + "\r\n" + "ISAOA/ATIMA" + "\r\n" + "7525 Irvine Center Drive #100" + "\r\n" + "Irvine, CA 92618"
+ los.SetField( "MortgageeIns.Notes", clause )
+
+};
