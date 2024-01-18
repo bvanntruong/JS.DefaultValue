@@ -1,0 +1,7 @@
+/* WFPOSTC02 : Investor Org ID and Servicer Org ID */
+/* Set Current Investor Org ID and Servicer Org ID to 1014945 (beginning of MERS number). */
+
+if (los.GetField("Status.FundingDate") != null){
+ los.SetField("Status.MERSCurrentInvestorOrgID", "1014945");
+ los.SetField("Status.MERSCurrentServicerOrgID", "1014945")
+ }
