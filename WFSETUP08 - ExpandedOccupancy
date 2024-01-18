@@ -1,0 +1,28 @@
+/* WFSETUP08 : Set Expanded Occupancy Type */
+/* When status changed to Loan Registered, Set Expanded Occupancy Type. */
+
+
+if (los.GetField("Status.CustomStatus15Date") != null) {
+
+
+ if (los.GetField("FileData.OccupancyType") == "1") /* Primary Residence */ {
+  los.SetField("ExtendedFields.ExpandedOccupancyType", "Owner Occupied")
+  };
+
+ if (los.GetField("FileData.OccupancyType") == "2") /* Secondary Residence */ {
+  los.SetField("ExtendedFields.ExpandedOccupancyType", "Second Home")
+  };
+
+ if (los.GetField("FileData.OccupancyType") == "3") /* Investment Property */ {
+  los.SetField("ExtendedFields.ExpandedOccupancyType", "Investment")
+  };
+
+ if ( (los.GetField("FileData.OccupancyType") == "3") /* Investment Property */
+  && (los.GetField("ExtendedFields.ExpandedDocType") == "Property Cash Flow") ) {
+  los.SetField("ExtendedFields.ExpandedOccupancyType", "Investment - DSCR")
+  };
+
+
+};
+
+
