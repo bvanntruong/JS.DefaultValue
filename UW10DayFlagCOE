@@ -1,0 +1,16 @@
+//UW10DayFlagCOE
+
+/* COE within 10 days or before (EXTENDED FIELD) */
+
+var today = new Date();
+var todayPlus10 = today;
+todayPlus10.setDate(today.getDate() + 10);
+todayPlus10.toDateString();
+
+function formatDate(date) {
+return date.getMonth()+1 + '/' + date.getDate() + '/' + date.getFullYear();
+}
+
+if ( (los.GetField("Status.SchedClosingDate")) <= todayPlus10 ) {
+ los.SetField( "ExtendedFields.UWTodayPlus10Days", (formatDate(todayPlus10)) )
+};
