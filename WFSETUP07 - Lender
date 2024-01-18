@@ -1,0 +1,15 @@
+/* WFSETUP07 : Set Lender to Optionwide */
+/* Set Lender Info on Parties Screen to Optionwide Financial Corporation. */
+
+if (los.GetField("Status.CustomStatus15Date") != null){
+
+ los.SetField("Lender.Company", "OPTIONWIDE FINANCIAL CORPORATION");
+ los.SetField("Lender.Street", "7525 IRVINE CENTER DRIVE #100");
+ los.SetField("Lender.City", "IRVINE");
+ los.SetField("Lender.State", "CA");
+ // los.SetField("Lender.ZipFormatted", "92618")
+ los.SetField("Lender.CompanyNMLSID", "1724453");
+
+}
+
+/* Internal field picker does not allow to set zip code (92618), phone number (888 920 6415), or fax number (888 846 1229). */
