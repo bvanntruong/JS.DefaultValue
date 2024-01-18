@@ -1,0 +1,93 @@
+/* WFFUND041 : Endorsements */
+
+/* Trigger is based off the expanded Property Type under Secondary section. 
+Units are the same as SFR. Condo/Non-warrantable Condo are same. PUD/Townhouse are the same. The rest don’t need. */
+
+if ( (los.GetField("FileData.FileName") == "Testcase1") 
+ && (ev.TableAndFieldName=="ExtendedFields.ExpandedPropertyType") ){
+
+
+/* Standard Endorsements */
+
+/* Texas SFR, PUD, Condo, ARM, A6 Cash Out */
+if (los.GetField("SubProp.State") == "TX") {
+ if ( (los.GetField("ExtendedFields.ExpandedPropertyType") == "Single Family Residence (SFR)") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "2 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "3 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "4 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "5+ units") ){
+  los.SetField("Party.TitleReportEndorsements", "T-1, T-3, T-19, T-30, T-36")
+ }
+ if ( (los.GetField("ExtendedFields.ExpandedPropertyType") == "PUD")
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "Townhouse") ){
+  los.SetField("Party.TitleReportEndorsements", "T-17, T-19, T-3, T-30, T-36")
+ }
+ if ((los.GetField("ExtendedFields.ExpandedPropertyType") == "Condo")
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "Non-Warrantable Condo")) {
+  los.SetField("Party.TitleReportEndorsements", "T-28")
+ }
+ if (los.GetField("Loan.AmortizationType") == "2") /* ARM */ {
+  los.SetField("Party.TitleReportEndorsements",  los.GetField("Party.TitleReportEndorsements") + ", T-33")
+ }
+ if ((los.GetField("Loan.RefiPurpAU") == "1") /* Cash-Out/Debt Consolidation */ 
+  || (los.GetField("Loan.RefiPurpAU") == "2") /* Cash-Out/Home Improvement */ 
+  || (los.GetField("Loan.RefiPurpAU") == "3") /* Limited Cash-Out */
+  || (los.GetField("Loan.RefiPurpAU") == "4") /* Cash-Out/Other */) {
+  los.SetField("Party.TitleReportEndorsements",  los.GetField("Party.TitleReportEndorsements") + ", T-2, T-2R, T-42,T-42.1")
+ }
+}
+
+/* DRY STATES SFR, PUD, Condo, CCR's, ARM */
+else if ( (los.GetField("SubProp.State") == "AK")
+ || (los.GetField("SubProp.State") == "AZ")
+ || (los.GetField("SubProp.State") == "CA")
+ || (los.GetField("SubProp.State") == "HI")
+ || (los.GetField("SubProp.State") == "ID")
+ || (los.GetField("SubProp.State") == "NV")
+ || (los.GetField("SubProp.State") == "NM")
+ || (los.GetField("SubProp.State") == "OR")
+ || (los.GetField("SubProp.State") == "WA") ) {
+ if ( (los.GetField("ExtendedFields.ExpandedPropertyType") == "Single Family Residence (SFR)") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "2 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "3 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "4 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "5+ units") ){
+  los.SetField("Party.TitleReportEndorsements", "8.1, ALTA 9")
+ }
+ if ( (los.GetField("ExtendedFields.ExpandedPropertyType") == "PUD")
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "Townhouse") ){
+  los.SetField("Party.TitleReportEndorsements", "8.1, 100, 116, 115.2, 5.0, 5.1, 100.13, 100.12")
+ }
+ if ((los.GetField("ExtendedFields.ExpandedPropertyType") == "Condo")
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "Non-Warrantable Condo")) {
+   los.SetField("Party.TitleReportEndorsements", "8.1, 100, 116, 116.2, 100.12");
+   if (los.GetField("SubProp.State") != "NV"){
+   los.SetField("Party.TitleReportEndorsements", los.GetField("Party.TitleReportEndorsements") + ", 100.13")
+   }
+ }
+ if (los.GetField("Loan.AmortizationType") == "2") /* ARM */ {
+  los.SetField("Party.TitleReportEndorsements",  los.GetField("Party.TitleReportEndorsements") + ", 111.5")
+ }
+}
+
+/* WET STATES SFR, PUD, Condo */
+else {
+ if ( (los.GetField("ExtendedFields.ExpandedPropertyType") == "Single Family Residence (SFR)") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "2 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "3 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "4 - unit") 
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "5+ units") ){
+  los.SetField("Party.TitleReportEndorsements", "8.1, 9-06, 22")
+ }
+ if ( (los.GetField("ExtendedFields.ExpandedPropertyType") == "PUD")
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "Townhouse") ){
+  los.SetField("Party.TitleReportEndorsements", "8.1, 5.1")
+ }
+ if ((los.GetField("ExtendedFields.ExpandedPropertyType") == "Condo")
+  || (los.GetField("ExtendedFields.ExpandedPropertyType") == "Non-Warrantable Condo")) {
+  los.SetField("Party.TitleReportEndorsements", "8.1, 4.0, 4.1")
+ }
+}
+
+
+};
