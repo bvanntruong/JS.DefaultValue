@@ -1,0 +1,5 @@
+/* WFSETUP06 : Set Application Date */
+
+var createdDate = los.GetField("FileData.DateCreated")
+
+los.SetField("Status.ApplicationDate", createdDate)
