@@ -1,0 +1,4 @@
+/* WFORIG013 : Set Homeowner’s Insurance Requirement */
+/* Homeowner's Insurance should always be required. Set box to true at File Opened. */
+
+los.SetField("Loan.HazardInsRequired", true)
