@@ -1,0 +1,17 @@
+/* WFUW016 - Set Original Approved Date */
+
+
+var OldStatus = ev.OldStatusName.toString();
+var NewStatus = ev.NewStatusName.toString();
+var ApprovedDate = los.GetField("Status.ApprovedDate");
+var OriginalApprovedDate = los.GetField("ExtendedFields.OriginalApprovedDate");
+
+if ( (OldStatus == "In Underwriting")
+ && (NewStatus == "Approved") 
+ && (OriginalApprovedDate == null) ) {
+ los.SetField("ExtendedFields.OriginalApprovedDate", ApprovedDate) };
+
+if ( (OldStatus == "Condition Review")
+ && (NewStatus == "Approved") 
+ && (OriginalApprovedDate == null) ) {
+ los.SetField("ExtendedFields.OriginalApprovedDate", ApprovedDate) }
