@@ -1,0 +1,9 @@
+/* Set Trade Name */
+
+/* internally updated trigger from On Screen Changed to File Opened */
+
+
+if (los.GetField("Secondary.InvestorCommitmentNo") != null) 
+{
+   los.SetField("ExtendedFields.Sec_TradeName", (los.GetField("Secondary.InvestorCommitmentNo")));
+}
