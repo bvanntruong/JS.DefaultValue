@@ -1,0 +1,13 @@
+/* WFFUND040 : Broker YSP */
+
+/* Pull the Less Loan Originator Compensation amount to the Funding Screen 
+   as a Wire Credit Adjustment (Broker YSP fee) when printing Closing Disclosure. */
+
+
+if (ev.ScreenName=="Funding") {  
+los.SetField("Secondary.FundingWireAdjustmentDesc1", "Broker YSP" );
+los.SetField("Secondary.FundingWireAdjustmentAmount1", (los.GetField("Loan.YSP_GFEAmount1")) );
+};
+
+
+
